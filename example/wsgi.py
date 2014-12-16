@@ -1,13 +1,14 @@
-    # +++++++++++ DJANGO +++++++++++
-    import os
-    import sys
+"""
+WSGI config for example project.
 
-    ## assuming your Django settings file is at '/home/my_username/projects/my_project/settings.py'
-    path = '/home/my_username/projects'
-    if path not in sys.path:
-        sys.path.append(path)
+It exposes the WSGI callable as a module-level variable named ``application``.
 
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'my_project.settings'
+For more information on this file, see
+https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
+"""
 
-    import django.core.handlers.wsgi
-    application = django.core.handlers.wsgi.WSGIHandler()
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "example.settings")
+
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
